@@ -17,6 +17,8 @@ public partial class Player : Creature
 
 	private AnimatedSprite2D _sprite;
 	private Area2D _hurtBox;
+	
+
 
 	public override void _Ready()
 	{
@@ -47,6 +49,20 @@ public partial class Player : Creature
 	public void TakeDamage(int damage)
 	{
 		CurrentHealth -= damage;
+		
+		if (CurrentHealth < 1)
+		{
+			GetNode<AnimationPlayer>("AnimationPlayer").Play("frog3");
+		}
+		else if (CurrentHealth < 2)
+		{
+			GetNode<AnimationPlayer>("AnimationPlayer").Play("frog2");
+		}
+		else if (CurrentHealth < 3)
+		{
+			GetNode<AnimationPlayer>("AnimationPlayer").Play("frog");
+		}
+
 
 		if (CurrentHealth <= 0)
 		{
@@ -58,6 +74,7 @@ public partial class Player : Creature
 			}
 			else
 			{
+				GetNode<AnimationPlayer>("AnimationPlayer").Play("frogfix");
 				GD.Print($"Player Lives: {Lives}");
 				GlobalPosition = _startPosition;
 				CurrentHealth = MaxHealth;
