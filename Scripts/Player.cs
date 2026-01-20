@@ -1,23 +1,26 @@
+using System.Drawing;
 using Godot;
 
 namespace UIProject.Scripts;
 
 public partial class Player : Creature
 {
-	[Signal]
-	public delegate void LivesChangedEventHandler(int lives);
 
+	public int playerPoints = 0;
 
 	[Export]
 	public int Lives = 3;
 	
 	private Vector2 _startPosition;
+	
+	private int Score = GameManager.playerScore;
 
 	private bool IsAttacking => _sprite.Animation.ToString() == "attack" && _sprite.IsPlaying();
 
 	private AnimatedSprite2D _sprite;
 	private Area2D _hurtBox;
-	
+
+	public int Points = 0;
 
 
 	public override void _Ready()
@@ -27,6 +30,9 @@ public partial class Player : Creature
 		
 		_sprite = GetNode<AnimatedSprite2D>("Sprite");
 		_hurtBox = GetNode<Area2D>("HurtBox");
+
+
+
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -67,7 +73,18 @@ public partial class Player : Creature
 		if (CurrentHealth <= 0)
 		{
 			Lives -= 1;
-			EmitSignal(SignalName.LivesChanged, Lives);
+			if (Lives < 3)
+			{
+				GetNode<AnimationPlayer>("livesplayer").Play("live 1");
+			}
+			else if (Lives < 2)
+			{
+				GetNode<AnimationPlayer>("livesplayer").Play("live 2");
+			}
+			else if (Lives < 1)
+			{
+				GetNode<AnimationPlayer>("livesplayer").Play("lives 1");
+			}
 			if (Lives <= 0) {
 				GD.Print("Game Over");
 				GetTree().Quit();
@@ -147,7 +164,14 @@ public partial class Player : Creature
 			{
 				//for this demo, just assume each attack does 1 damage
 				enemy.TakeDamage(1);
+				Score = GameManager.playerScore;
+				UpdateScore();
 			}
 		}
+	}
+
+	private void UpdateScore()
+	{
+		GetNode<RichTextLabel>("RichTextLabel").Text = $"Score: {Score}";
 	}
 }

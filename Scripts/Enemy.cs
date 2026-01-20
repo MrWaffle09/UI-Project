@@ -59,7 +59,7 @@ public partial class Enemy : Creature
 		CurrentHealth -= damage;
 		if (CurrentHealth <= 0)
 		{
-			EmitSignal(SignalName.EnemyDied, Points);
+			GameManager.playerScore += Points;
 			QueueFree();
 		}
 	}

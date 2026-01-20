@@ -16,6 +16,10 @@ run/main_scene="res://Scenes/Level.tscn"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="uid://bwehchj7ai5ef"
 
+[autoload]
+
+GameManager="*res://Scripts/GameManager.cs"
+
 [dotnet]
 
 project/assembly_name="UI Project"
