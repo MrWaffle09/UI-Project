@@ -1,9 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://v074xqwg3vcg"]
+[gd_scene load_steps=24 format=3 uid="uid://v074xqwg3vcg"]
 
 [ext_resource type="Script" uid="uid://cmn6xybbypwpq" path="res://Scripts/Enemy.cs" id="1_86kj1"]
 [ext_resource type="Texture2D" uid="uid://tndwe5mqtf6w" path="res://Assets/Monsters/Ogre_idle.png" id="2_jxka3"]
 [ext_resource type="Texture2D" uid="uid://dccqbmbpfm85w" path="res://Assets/Monsters/Ogre_attack.png" id="2_tyfgm"]
 [ext_resource type="Texture2D" uid="uid://ctweqnkwhwd4j" path="res://Assets/Monsters/Ogre_walk.png" id="4_qekfd"]
+[ext_resource type="Texture2D" uid="uid://dhvwtke6i060x" path="res://Pixel Health Bar/Bar/no health bar.png" id="5_iewqs"]
+[ext_resource type="Texture2D" uid="uid://w5ha05bfbfl8" path="res://Pixel Health Bar/Bar/empty health bar.png" id="6_qrg48"]
+[ext_resource type="Texture2D" uid="uid://26awtoyl4qy4" path="res://Pixel Health Bar/Health/health.png" id="7_qrg48"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_341m7"]
 atlas = ExtResource("2_tyfgm")
@@ -152,6 +155,17 @@ debug_color = Color(0.994536, 0, 0.220482, 0.42)
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="TextureProgress" type="TextureProgressBar" parent="."]
+offset_left = -64.0
+offset_top = -93.0
+offset_right = 64.0
+offset_bottom = -53.0
+max_value = 3.0
+value = 3.0
+texture_under = ExtResource("5_iewqs")
+texture_over = ExtResource("6_qrg48")
+texture_progress = ExtResource("7_qrg48")
 
 [connection signal="animation_finished" from="Sprite" to="." method="DealDamage"]
 [connection signal="timeout" from="AttackTimer" to="." method="ResumeAttack"]

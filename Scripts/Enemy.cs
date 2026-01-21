@@ -19,6 +19,9 @@ public partial class Enemy : Creature
 	private AnimatedSprite2D _sprite;
 	private Area2D _hurtBox;
 	private Timer _attackTimer;
+	private TextureProgressBar _textureProgress;
+	private float target = 3;
+	private float speed;
 	
 	public override void _Ready()
 	{
@@ -32,11 +35,14 @@ public partial class Enemy : Creature
 		_sprite = GetNode<AnimatedSprite2D>("Sprite");
 		_hurtBox = GetNode<Area2D>("HurtBox");
 		_attackTimer = GetNode<Timer>("AttackTimer");
+		_textureProgress = GetNode<TextureProgressBar>("TextureProgress");
+		speed = 10;
 	}
 
 	
 	public override void _Process(double delta)
 	{
+		_textureProgress.Value = target;
 		_navAgent.TargetPosition = _player.GlobalPosition;
 		var nextPosition = _navAgent.GetNextPathPosition();
 		
@@ -57,6 +63,7 @@ public partial class Enemy : Creature
 	{
 		GD.Print("enemy hit");
 		CurrentHealth -= damage;
+		target = CurrentHealth;
 		if (CurrentHealth <= 0)
 		{
 			GameManager.playerScore += Points;
