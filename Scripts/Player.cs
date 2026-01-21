@@ -73,17 +73,18 @@ public partial class Player : Creature
 		if (CurrentHealth <= 0)
 		{
 			Lives -= 1;
-			if (Lives < 3)
+			if (Lives == 2)
 			{
-				GetNode<AnimationPlayer>("livesplayer").Play("live 1");
+				GD.Print("ben is beri cool");
+				GetNode<AnimationPlayer>("AnimationPlayer2").Play("live1");
 			}
-			else if (Lives < 2)
+			else if (Lives == 1)
 			{
-				GetNode<AnimationPlayer>("livesplayer").Play("live 2");
+				GetNode<AnimationPlayer>("AnimationPlayer2").Play("live2");
 			}
-			else if (Lives < 1)
+			else if (Lives == 0)
 			{
-				GetNode<AnimationPlayer>("livesplayer").Play("lives 1");
+				GetNode<AnimationPlayer>("AnimationPlayer2").Play("live3");
 			}
 			if (Lives <= 0) {
 				GD.Print("Game Over");
