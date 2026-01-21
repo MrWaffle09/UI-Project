@@ -64,6 +64,7 @@ public partial class Enemy : Creature
 		GD.Print("enemy hit");
 		CurrentHealth -= damage;
 		target = CurrentHealth;
+		GetNode<AnimationPlayer>("damageplayer").Play("take damage");
 		if (CurrentHealth <= 0)
 		{
 			GameManager.playerScore += Points;

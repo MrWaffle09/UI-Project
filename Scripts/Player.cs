@@ -55,6 +55,7 @@ public partial class Player : Creature
 	public void TakeDamage(int damage)
 	{
 		CurrentHealth -= damage;
+		GetNode<AnimationPlayer>("damageplayer1").Play("takeDamage");
 		
 		if (CurrentHealth < 1)
 		{
