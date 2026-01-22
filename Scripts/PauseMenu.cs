@@ -15,12 +15,16 @@ public partial class PauseMenu : Control
 	
 	private void resume()
 	{
-		Get_Tree().paused=false;
+	//	Get_Tree().paused=false;
 	}
-	
 	private void pause()
 	{
-		Get_Tree().paused=true;
+	//	Get_Tree().paused=true;
+	}
+	
+	private void _on_pressed()
+	{
+		
 	}
 	
 }
