@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c52ddmqeu8ip"]
 
-[ext_resource type="Script" uid="uid://eofqd6l4p0dk" path="res://ButtonDie.cs" id="1_s2rrh"]
+[ext_resource type="Script" uid="uid://eofqd6l4p0dk" path="res://Scripts/ButtonDie.cs" id="1_s2rrh"]
 [ext_resource type="Texture2D" uid="uid://b3ueyictp7e86" path="res://keanu-reeves-110325-248bc604f7ed4bc0b7ff4159c7ced811.jpg" id="2_488pv"]
 
 [node name="Lose Screen" type="Node2D"]

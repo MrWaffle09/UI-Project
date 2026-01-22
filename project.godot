@@ -13,7 +13,7 @@ config_version=5
 config/name="UI Project"
 config/version="1.0"
 run/main_scene="uid://bcl3ou5fyo2o5"
-config/features=PackedStringArray("4.4", "C#", "Forward Plus")
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="uid://bwehchj7ai5ef"
 
 [autoload]
@@ -30,6 +30,13 @@ folder_colors={
 "res://Assets/": "red",
 "res://Scenes/": "purple",
 "res://Scripts/": "yellow"
+}
+
+[input]
+
+Escape={
+"deadzone": 0.2,
+"events": []
 }
 
 [rendering]

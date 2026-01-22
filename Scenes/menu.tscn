@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcl3ou5fyo2o5"]
 
 [ext_resource type="Texture2D" uid="uid://dyln01v35pqug" path="res://Frog-Rachelle-Richard-Mack-1.jpg" id="1_cayip"]
-[ext_resource type="Script" uid="uid://cbgf6tdabjye3" path="res://Scenes/ButtonQuit.cs" id="2_158mb"]
-[ext_resource type="Script" uid="uid://dwvc0eqb6tigw" path="res://Scenes/Button2.cs" id="3_wwsa2"]
+[ext_resource type="Script" uid="uid://cbgf6tdabjye3" path="res://Scripts/ButtonQuit.cs" id="2_158mb"]
+[ext_resource type="Script" uid="uid://dwvc0eqb6tigw" path="res://Scripts/Button2.cs" id="3_wwsa2"]
 
 [node name="Menu" type="Node2D"]
 
