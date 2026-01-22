@@ -48,7 +48,9 @@ public partial class Player : Creature
 		if (attacking && !IsAttacking)
 			ActivateAttack();
 		UpdateSpriteAnimation(direction, attacking);
-		
+
+		Win();
+			
 		MoveAndSlide();
 	}
 
@@ -89,7 +91,7 @@ public partial class Player : Creature
 			}
 			if (Lives <= 0) {
 				GD.Print("Game Over");
-				GetTree().Quit();
+				GetTree().ChangeSceneToFile("res://Scenes/lose_screen.tscn");
 			}
 			else
 			{
@@ -175,5 +177,14 @@ public partial class Player : Creature
 	private void UpdateScore()
 	{
 		GetNode<RichTextLabel>("RichTextLabel").Text = $"Score: {Score}";
+	}
+
+	private async void Win()
+	{
+		if (Score == 30)
+		{
+			await ToSignal(GetTree().CreateTimer(3f), "timeout");
+			GetTree().ChangeSceneToFile("res://win.tscn");
+		}
 	}
 }

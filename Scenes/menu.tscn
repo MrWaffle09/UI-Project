@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcl3ou5fyo2o5"]
+
+[ext_resource type="Texture2D" uid="uid://dyln01v35pqug" path="res://Frog-Rachelle-Richard-Mack-1.jpg" id="1_cayip"]
+[ext_resource type="Script" uid="uid://cbgf6tdabjye3" path="res://Scenes/ButtonQuit.cs" id="2_158mb"]
+[ext_resource type="Script" uid="uid://dwvc0eqb6tigw" path="res://Scenes/Button2.cs" id="3_wwsa2"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 235.0
+offset_top = -14.0
+offset_right = 1388.0
+offset_bottom = 318.0
+theme_override_colors/font_selected_color = Color(0, 1, 0.337255, 1)
+theme_override_colors/font_outline_color = Color(1.01075e-06, 0.531399, 1.05888e-06, 1)
+theme_override_colors/font_shadow_color = Color(6.83457e-06, 0.773823, 1.54018e-06, 1)
+theme_override_font_sizes/normal_font_size = 256
+text = "FROG"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -4
+offset_left = -566.0
+offset_top = -4.0
+offset_right = 1414.0
+offset_bottom = 1076.0
+texture = ExtResource("1_cayip")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 348.0
+offset_top = 420.0
+offset_right = 799.0
+offset_bottom = 507.0
+text = "QUIT"
+script = ExtResource("2_158mb")
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 333.0
+offset_top = 319.0
+offset_right = 810.0
+offset_bottom = 401.0
+text = "PLAY"
+script = ExtResource("3_wwsa2")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed2"]
