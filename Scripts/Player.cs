@@ -184,7 +184,7 @@ public partial class Player : Creature
 		if (Score == 30)
 		{
 			await ToSignal(GetTree().CreateTimer(3f), "timeout");
-			GetTree().ChangeSceneToFile("res://win.tscn");
+			GetTree().ChangeSceneToFile("res://Scenes/win.tscn");
 		}
 	}
 }

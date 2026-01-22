@@ -25,6 +25,7 @@ text = "You Lose"
 z_index = -1
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 texture = ExtResource("2_488pv")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
